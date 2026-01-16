@@ -35,48 +35,59 @@ public class Position
     }
 
     public void Execute(char command)
-    { 
+    {
         switch (command)
         {
-            // left
-            case Left when Direction == North:
-                Direction = West;
+            case Left:
+                TurnLeft();
                 break;
-            case Left when Direction == West:
-                Direction = South;
+            case Right:
+                TurnRight();
                 break;
-            case Left when Direction == South:
-                Direction = East;
+            case Move:
+                MoveForward();
                 break;
-            case Left when Direction == East:
-                Direction = North;
-                break;
-            
-            // right
-            case Right when Direction == North:
-                Direction = East;
-                break;
-            case Right when Direction == East:
-                Direction = South;
-                break;
-            case Right when Direction == South:
-                Direction = West;
-                break;
-            case Right when Direction == West:
-                Direction = North;
-                break;
-            
-            // move
-            case Move when Direction == North:
+        }
+    }
+
+    private void TurnLeft()
+    {
+        Direction = Direction switch
+        {
+            North => West,
+            West => South,
+            South => East,
+            East => North,
+            _ => Direction
+        };
+    }
+
+    private void TurnRight()
+    {
+        Direction = Direction switch
+        {
+            North => East,
+            East => South,
+            South => West,
+            West => North,
+            _ => Direction
+        };
+    }
+
+    private void MoveForward()
+    {
+        switch (Direction)
+        {
+            case North:
                 Y = IncrementPositionIndex(Y);
                 break;
-            case Move when Direction == East:
+            case East:
                 X = IncrementPositionIndex(X);
                 break;
-            case Move when Direction == South:
+            case South:
                 Y = DecrementPositionIndex(Y);
                 break;
-            case Move when Direction == West:
+            case West:
                 X = DecrementPositionIndex(X);
                 break;
         }
@@ -87,7 +98,7 @@ public class Position
         return $"{X}:{Y}:{Direction}";
     }
 
-    private int IncrementPositionIndex(int index)
+    private static int IncrementPositionIndex(int index)
     {
         index++;
         
@@ -99,7 +110,7 @@ public class Position
         return index;
     }
     
-    private int DecrementPositionIndex(int index)
+    private static int DecrementPositionIndex(int index)
     {
         index--;
         

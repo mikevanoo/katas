@@ -11,7 +11,7 @@ public class MarsRover
 
     public string Execute(string command)
     {
-        foreach (char cmd in command)
+        foreach (var cmd in command)
         {
             Position.Execute(cmd);
         }
