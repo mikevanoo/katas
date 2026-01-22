@@ -13,7 +13,7 @@ namespace GildedRose.Tests
     public class GoldenMasterTests
     {
         private const int FixedSeed = 100;
-        private const int NumberOfRandomItems = 2000;
+        private const int NumberOfItems = 2000;
         private const int Minimum = 0;
         private const int Maximum = 50;
         
@@ -26,22 +26,23 @@ namespace GildedRose.Tests
             "Conjured Mana Cake"
         };
 
+        // Fixed seed ensures reproducible test data: generates diverse items deterministically for golden master verification
         private readonly Random _random = new Random(FixedSeed);
         private readonly Console.GildedRose _gildedRose = new Console.GildedRose(new ItemUpdateStrategyFactory());
 
         [Fact]
         public Task Should_Generate_Update_Quality_Output()
         {
-            List<Item> items = GenerateRandomItems(NumberOfRandomItems);
+            List<Item> items = GenerateTestItems(NumberOfItems);
 
             _gildedRose.UpdateQuality(items);
 
             return Verifier.Verify(GetStringRepresentationFor(items));
         }
 
-        private List<Item> GenerateRandomItems(int totalNumberOfRandomItems) {
+        private List<Item> GenerateTestItems(int numberOfItems) {
             var items = new List<Item>();
-            for (int cnt = 0; cnt < totalNumberOfRandomItems; cnt++) {
+            for (var count = 0; count < numberOfItems; count++) {
                 items.Add(new Item { Name = ItemName(), SellIn = SellIn(), Quality = Quality() });
             }
             return items;
@@ -52,14 +53,14 @@ namespace GildedRose.Tests
         }
 
         private int SellIn() {
-            return RandomNumberBetween(Minimum, Maximum);
+            return NumberBetween(Minimum, Maximum);
         }
 
         private int Quality() {
-            return RandomNumberBetween(Minimum, Maximum);
+            return NumberBetween(Minimum, Maximum);
         }
 
-        private int RandomNumberBetween(int minimum, int maximum) {
+        private int NumberBetween(int minimum, int maximum) {
             return minimum + _random.Next(maximum);
         }
 
