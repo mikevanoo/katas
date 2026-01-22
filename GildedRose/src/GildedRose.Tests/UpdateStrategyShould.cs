@@ -24,14 +24,11 @@ namespace GildedRose.Tests
             Item item,
             StandardItemUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             item.Quality = initialQuality;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.Quality.Should().Be(expectedQuality);
         }
         
@@ -45,13 +42,10 @@ namespace GildedRose.Tests
             Item item,
             StandardItemUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.SellIn.Should().Be(expectedSellIn);
         }
         
@@ -71,14 +65,11 @@ namespace GildedRose.Tests
             Item item,
             AgedBrieUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             item.Quality = initialQuality;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.Quality.Should().Be(expectedQuality);
         }
         
@@ -92,13 +83,10 @@ namespace GildedRose.Tests
             Item item,
             AgedBrieUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.SellIn.Should().Be(expectedSellIn);
         }
         
@@ -111,13 +99,10 @@ namespace GildedRose.Tests
             Item item,
             LegendaryItemUpdateStrategy sut)
         {
-            // arrange
             item.Quality = initialQuality;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.Quality.Should().Be(initialQuality);
         }
         
@@ -130,13 +115,10 @@ namespace GildedRose.Tests
             Item item,
             LegendaryItemUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.SellIn.Should().Be(initialSellIn);
         }
         
@@ -155,14 +137,11 @@ namespace GildedRose.Tests
             Item item,
             BackstagePassUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             item.Quality = initialQuality;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.Quality.Should().Be(expectedQuality);
         }
         
@@ -176,13 +155,10 @@ namespace GildedRose.Tests
             Item item,
             BackstagePassUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.SellIn.Should().Be(expectedSellIn);
         }
         
@@ -202,14 +178,11 @@ namespace GildedRose.Tests
             Item item,
             ConjuredItemUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             item.Quality = initialQuality;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.Quality.Should().Be(expectedQuality);
         }
         
@@ -223,13 +196,10 @@ namespace GildedRose.Tests
             Item item,
             ConjuredItemUpdateStrategy sut)
         {
-            // arrange
             item.SellIn = initialSellIn;
             
-            // act
             sut.Update(item);
 
-            // assert
             item.SellIn.Should().Be(expectedSellIn);
         }
     }

@@ -17,13 +17,10 @@ namespace GildedRose.Tests
         [InlineAutoData("Conjured Mana Cake", typeof(ConjuredItemUpdateStrategy))]
         public void Return_The_Correct_Strategy(string name, Type strategyType)
         {
-            // arrange
             var sut = new ItemUpdateStrategyFactory();
 
-            // act
             var actual = sut.Get(name);
             
-            // assert
             actual.Should().BeOfType(strategyType);
         }
     }
