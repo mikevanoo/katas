@@ -45,7 +45,7 @@ The kata uses composer to install:
 - [PHPUnit](https://phpunit.de/)
 - [PHPStan](https://github.com/phpstan/phpstan)
 - [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard) 
-- [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki)
+- [PHP CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki)
 
 ## Folders
 
